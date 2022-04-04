@@ -3,16 +3,22 @@ import bodyParser from 'body-parser'
 import five from 'johnny-five'
 import Raspi from 'raspi-io'
 import gpio from 'onoff'
-
+import  cors from 'cors';
 const app = express();
 const board = new five.Board({
   io: new Raspi.RaspiIO()
 });
 
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-
+//generate valueble
+const pir = new gpio.Gpio(18, 'in', 'both');
+const led = new gpio.Gpio(26,'out')
+const soil  = new gpio.Gpio(15, 'in', 'both');
+const relay = new gpio.Gpio(5, 'out');
+const raindrop  = new gpio.Gpio(16, 'in', 'both');
 
 const motor1 = new five.Motor({pins:{ pwm: 'GPIO13', dir: 'GPIO19'}, invertPWM:  true});
 //motor1.reverse(50);
@@ -58,15 +64,15 @@ var sensor = {
       temperature: readout.temperature.toFixed(2),
       date: new Date(),
     };
-    db.insert(data, function (err, newDoc) {
-      console.log(newDoc);
-    });
+ //   db.insert(data, function (err, newDoc) {
+ //     console.log(newDoc);
+ //   });
 
     // Repeat
-    setTimeout(function () {
-      sensor.read();
-    }, 10000);
-  },
+ //   setTimeout(function () {
+ //     sensor.read();
+ //   }, 10000);
+ },
 
   readStatus: function () {
     // Read
@@ -80,21 +86,29 @@ if (sensor.initialize()) {
 } else {
   console.warn("Failed to initialize sensor");
 }
-//////////////////////////////////////////////
+/////////////////////////////////////////////
 const ledThree1 = new gpio.Gpio(23, 'out');
 const ledThree2 = new gpio.Gpio(24, 'out');
 const ledTwo1 = new gpio.Gpio(14, 'out');
 const ledTwo2 = new gpio.Gpio(27, 'out');
 const ledOne1 = new gpio.Gpio(22, 'out');
 const ledOne2 = new gpio.Gpio(9, 'out');
-const allLed = [{id: "led3-1", led:ledThree1},  {id: "led3-2", led:ledThree2}, {id: "led2-1", led:ledTwo1},{id: "led2-2", led:ledTwo2},{id: "led1-1", led:ledOne1},{id: "led1-2", led:ledOne2}]
+const allLed = [{id: "led3-1", led:ledThree1},  {id: "led3-2", led:ledThree2}, {id: "led2-1", led:ledTwo1},{id: "led2-2", led:ledTwo2},{id: "led1-1", led:ledOne1}]
 
-app.get("/api/led/status", (req,res) => {
+app.get("/api/status", (req,res) => {
 const status = [];
 allLed.map((data)=>{
         data.status = data.led.readSync();
         status.push(data)});
-        res.status(200).send(status);
+const pirRead = pir.readSync();
+const soilRead = soil.readSync();
+const raindropRead = raindrop.readSync();
+var readout = sensor.readStatus();
+  const tempRead = {
+    temperature: readout.temperature.toFixed(2),
+    humidity: readout.humidity.toFixed(2),
+  };
+        res.status(200).send({led:status, pir:pirRead, raindrop: raindropRead, soil: soilRead, temp: tempRead});
 });
 
 app.get('/api/led/:id', (req,res) =>{
@@ -110,14 +124,7 @@ app.get('/api/led/:id', (req,res) =>{
         }
 });
 });
-////////////////////////////////////////
-
-//generate valueble 
-const pir = new gpio.Gpio(18, 'in', 'both');
-const led = new gpio.Gpio(26,'out')
-const soil  = new gpio.Gpio(15, 'in', 'both');
-const relay = new gpio.Gpio(5, 'out');
-const raindrop  = new gpio.Gpio(16, 'in', 'both');
+//////////////////////////////////////
 
 
 app.get("/api/roof/open", (req, res) => {
@@ -232,7 +239,7 @@ res.json({message: 'success! stopped the gate'})
 
 
 function startServer() {
-    app.listen("6000", () => {
+    app.listen("5000", () => {
         console.log("App listening on port 6000");
     });
 }

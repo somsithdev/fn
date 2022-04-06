@@ -59,9 +59,6 @@ gardenLight1.writeSync(1);
 gardenLight2.writeSync(1);
 gardenLight3.writeSync(1);
 
-//motor1.reverse(50);
-//setTimeout(()=>{motor1.stop()},5000)
-
 // Sensor
 import sensorLib from "node-dht-sensor";
 
@@ -130,7 +127,6 @@ const ledThree2 = new gpio.Gpio(24, "out");
 const ledTwo1 = new gpio.Gpio(14, "out");
 const ledTwo2 = new gpio.Gpio(27, "out");
 const ledOne1 = new gpio.Gpio(22, "out");
-const ledOne2 = new gpio.Gpio(9, "out");
 const allLed = [
   { id: "led3-1", led: ledThree1 },
   { id: "led3-2", led: ledThree2 },
@@ -215,15 +211,8 @@ app.get("/api/roof/stop", async (req, res) => {
 
 raindrop.watch(function (err, value) {
   if (value == 1) {
-    //         const motor = new five.Motor({pins:{ pwm: 'GPIO12', dir: 'GPIO6'}, invertPWM: true});
-    //      motor.reverse(35);
-    //   await setTimeout(()=>{motor.stop()},25000)
     console.log("not rain");
   } else {
-    //        const motor = new five.Motor({pins:{ pwm: 'GPIO12', dir: 'GPIO6'}, invertPWM: true});
-    //motor.forward(35);
-    // await setTimeout(()=>{motor.stop()},25000)
-    //const motor1 = new five.Motor({pins:{ pwm: 'GPIO13', dir: 'GPIO9'}, invertPWM: true});
     motor1.reverse(50);
     console.log("It's raining !");
     console.log("Wait 4 seconds until rooftop is close");
@@ -250,15 +239,9 @@ photoresistor.watch(function (err, value) {
 
 pir.watch(async function (err, value) {
   if (value == 1) {
-    //         const motor = new five.Motor({pins:{ pwm: 'GPIO12', dir: 'GPIO6'}, invertPWM: true});
-    //      motor.reverse(35);
-    //   await setTimeout(()=>{motor.stop()},25000)
     led.writeSync(1);
     console.log("turn on light!");
   } else {
-    //        const motor = new five.Motor({pins:{ pwm: 'GPIO12', dir: 'GPIO6'}, invertPWM: true});
-    //motor.forward(35);
-    // await setTimeout(()=>{motor.stop()},25000)
     led.writeSync(0);
     console.log("turn off light");
   }
@@ -269,9 +252,6 @@ soil.watch(function (err, value) {
     console.log("watering");
     relay.writeSync(1);
   } else {
-    //        const motor = new five.Motor({pins:{ pwm: 'GPIO12', dir: 'GPIO6'}, invertPWM: true});
-    //motor.forward(35);
-    // await setTimeout(()=>{motor.stop()},25000)
     relay.writeSync(0);
     console.log("stop watering");
   }

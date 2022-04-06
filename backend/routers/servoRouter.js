@@ -157,19 +157,17 @@ app.get("/api/status", (req, res) => {
     temperature: readout.temperature.toFixed(2),
     humidity: readout.humidity.toFixed(2),
   };
-  res
-    .status(200)
-    .send({
-      led: status,
-      pir: pirRead,
-      raindrop: raindropRead,
-      soil: soilRead,
-      temp: tempRead,
-      car: carRead,
-      gate: gateRead,
-      roof: roofRead,
-      photoresistor: photoresistorRead,
-    });
+  res.status(200).send({
+    led: status,
+    pir: pirRead,
+    raindrop: raindropRead,
+    soil: soilRead,
+    temp: tempRead,
+    car: carRead,
+    gate: gateRead,
+    roof: roofRead,
+    photoresistor: photoresistorRead,
+  });
 });
 
 app.get("/api/led/:id", (req, res) => {

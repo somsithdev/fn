@@ -1,38 +1,342 @@
-.App {
-  text-align: center;
+html {
+  font-size: 62.5%;
+  /* 16px  x 62.4 =10px = 1rem */
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  height: 100%;
+}
+.card-container {
+  padding-top: 5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  background-color: rgb(59, 55, 55);
+  border: 1px solid gray;
+  color: white;
+  display: block;
+  margin-inline: 20%;
+  line-height: 400%;
+  display: block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.center-div {
+  margin: auto;
+}
+
+.brand-home {
+  font-size: 3rem;
+  font: bold;
+}
+
+.status-box {
+  margin: 0 0 0 0;
+  line-height: 200%;
+  text-align: left;
+  padding-left: 5%;
+}
+
+.card-profile {
+  margin-inline: 30%;
+}
+
+.card-container-profile {
+  padding-top: 10%;
+}
+
+.card-container-management {
+  padding-top: 10%;
+}
+
+.background-green {
+  background-color: green;
+}
+.background-blue {
+  background-color: rgb(91, 91, 204);
+}
+.background-red {
+  background-color: rgb(204, 48, 48);
+}
+
+.backbut {
+  text-align: left;
+  display: block;
+  margin-left: 10%;
+  color: black;
+  width: fit-content;
+}
+
+.backbut:hover {
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
+
+.card:hover {
+  background-color: rgb(82, 80, 80);
+}
+
+.garden-status-box {
+  background-color: rgb(59, 55, 55);
+
+  color: white;
+  display: block;
+  margin-inline: 30%;
+  line-height: 250%;
+  display: block;
+  text-align: left;
+  padding-left: 2.5%;
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.controll-box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.no-margin {
+  margin: 0 0 0 0;
+}
+
+.type-box {
+  width: 10rem;
+  margin: 1%;
+}
+
+.box {
+  display: block;
+}
+
+.ModalWrapper {
+  width: 59%;
+  height: 59%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #000;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  margin-inline: 20.5%;
+  margin-block: 10%;
+  overflow: scroll;
+}
+.fix-size {
+  width: 30%;
+  height: 30%;
+  margin-inline: 35.5%;
+}
+
+.ModalWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.ModalWrapper {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.CloseModalButton {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0px;
+  z-index: 10;
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 3rem;
+}
+.Background {
+  position: fixed; /* Stay in place */
+
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.delete-container {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 10%;
+  background-color: rgb(196, 36, 36);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.ModalWrapper h1 {
+  font-size: 2.7rem;
+  line-height: 0;
+  letter-spacing: 0.146em;
+  font-weight: 600;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.update-container {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 10%;
+  background-color: rgb(72, 110, 192);
+  color: white;
+}
+
+.two-margin-inside > * {
+  margin: 1.5% 0;
+}
+
+.edit-box {
+  width: 80%;
+  height: 10%;
+  font-size: 2rem;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  float: right;
+}
+.button-delete {
+  width: 100px;
+  margin: 0 5px;
+  background-color: white;
+  color: black;
+}
+
+.button-delete:hover {
+  background-color: black;
+  color: white;
+}
+
+/* sensor */
+logo {
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  font-size: 3.2em;
+  color: white;
+  /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); */
+  margin: 0 auto;
+  /* padding-top: 180px; */
+  /* max-width: 300px; */
+  text-align: center;
+  /* position: relative; */
+  top: 0px;
+  color: rgb(105, 99, 99);
+}
+
+h1#title span span {
+  font-weight: 400;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 1.4em;
+  line-height: 2.8em;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+a:hover {
+  color: #aeaeae;
+}
+
+p.small {
+  font-size: 0.8em;
+  margin: 20px 0 0;
+}
+
+.login-box {
+  background-color: white;
+  max-width: 340px;
+  margin: 6% auto;
+
+  top: 80px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+  border: 1px solid #57574d;
+  text-align: center;
+}
+
+.login-box .box-header {
+  background-color: #57574d;
+  margin-top: 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.login-box label {
+  font-weight: 700;
+  font-size: 0.8em;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 2em;
+}
+
+.login-box input {
+  margin-bottom: 20px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #665851;
+  transition: 0.5s;
+  color: #665851;
+}
+
+.login-box button {
+  margin-top: 0px;
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  background-color: #665851;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-box button:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.login-box button:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.selected {
+  color: #616651 !important;
+  transition: 0.5s;
+}
+
+/* Animation Delay */
+
+.garden-status-box button {
+  text-align: right;
 }

@@ -168,12 +168,22 @@ app.post(
       phone: req.body.phone,
       dob: req.body.dob,
       password: bcrypt.hashSync(req.body.password, 8),
-      isAdmin: req.body.isAdmin,
+      isAdmin: req.body.admin,
     });
 
-    const createdUser = await user.save();
-    console.log(createdUser);
-    res.send({
+    
+    
+    const emailc = await User.findOne({ email: req.body.email });
+    if(emailc){
+	res.send("Email has been used");
+}
+const usernamec = await User.findOne({ username: req.body.username });
+    if(usernamec){
+	res.send("Username has been used");
+}
+const createdUser = await user.save();
+console.log(createdUser);
+        res.send({
       _id: createdUser._id,
       username: createdUser.username,
       email: createdUser.email,

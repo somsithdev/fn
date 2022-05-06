@@ -210,7 +210,7 @@ app.put(
     const user = await User.findById(req.params.id);
     console.log(req.body);
     if (user) {
-      user.name = req.body.name || user.name;
+      user.username = req.body.username || user.username;
       user.email = req.body.email || user.email;
       user.isAdmin = req.body.isAdmin || user.isAdmin;
       user.phone = req.body.phone || user.phone;

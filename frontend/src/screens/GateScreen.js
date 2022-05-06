@@ -48,9 +48,9 @@ export default function GateScreen(props) {
                     textAlign: "center",
                     background: "#202A3B",
                   }}
-                  onClick={() => gateHandler("open")}
+                  onClick={() => gateHandler("close")}
                 >
-                  ON
+                  Open
                 </li>
                 <li
                   className="card"
@@ -59,9 +59,9 @@ export default function GateScreen(props) {
                     textAlign: "center",
                     background: "#202A3B",
                   }}
-                  onClick={() => gateHandler("close")}
+                  onClick={() => gateHandler("open")}
                 >
-                  OFF
+                  Close
                 </li>
               </ul>
             </div>

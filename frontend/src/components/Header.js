@@ -6,7 +6,7 @@ export default function Header(props) {
       <div className="container">
         <div className="row">
           <div>
-            <a className="brand" href="/home">
+            <a className="brand" href="/">
               Sm
               <img src={logo} alt="a" style={{ width: "30px" }} />
               rt Home

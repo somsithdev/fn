@@ -203,6 +203,17 @@ img.large {
   border-radius: 0.5rem;
   margin: 0.8rem;
 }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  /* margin: 3%; */
+}
+.inline {
+  display: inline-block; 
+/* border: 1px solid red;  */
+margin:10px;
+}
 
 .card-body {
   padding: 1rem;
@@ -252,3 +263,59 @@ img.large {
   color: red;
   background-color: #ffe0e0e0;
 }
+
+.form {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.button-state{
+  background: transparent;
+  border: 0rem;
+  padding: 0rem;
+}
+
+.button-state:hover{
+  background: transparent;
+  border: 0rem;
+  padding: 0rem;
+}
+
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem;
+}
+
+.input {
+  height: 4rem;
+}
+
+.form label {
+  text-align: left;
+  margin: 1rem;
+  /* display: block; */
+}
+
+
+table {
+  border-collapse: collapse;
+}
+table td {
+  border: 2px solid #17202e; 
+}
+table tr:first-child td {
+  border-top: 0;
+}
+table tr td:first-child {
+  border-left: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:last-child {
+  border-right: 0;
+}
+

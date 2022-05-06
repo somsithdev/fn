@@ -50,7 +50,7 @@ export default function CarScreen(props) {
                   }}
                   onClick={() => carHandler("open")}
                 >
-                  ON
+                  Open
                 </li>
                 <li
                   className="card"
@@ -61,7 +61,7 @@ export default function CarScreen(props) {
                   }}
                   onClick={() => carHandler("close")}
                 >
-                  OFF
+                  Close
                 </li>
               </ul>
             </div>

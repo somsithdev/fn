@@ -1,0 +1,12 @@
+.danger {
+  background-color: rgb(236, 125, 125);
+  /* padding: 2rem; */
+  width: 30rem;
+  /* padding: 10rem; */
+  /* height: 5rem; */
+  margin: auto;
+  border-radius: 1rem;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}

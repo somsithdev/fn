@@ -20,8 +20,8 @@ export default function Header(props) {
             </a>
           </div>
           <div>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/control">Controlling</a>
+            {/* <a href="/dashboard">Dashboard</a>
+            <a href="/control">Controlling</a> */}
             {/* <a href="/management">Manage</a> */}
             <a>
               <Link to="/signin" onClick={signoutHanler}>

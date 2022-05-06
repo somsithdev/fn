@@ -56,7 +56,7 @@ const Widgets = () => {
         </WidgetContainer>
       </div>
       <div style={{ background: "#344561", margin: "2rem 0", padding: "1rem" }}>
-        <div>Trạng thái điều khiển bằng ứng dụng</div>
+        <div>Trạng thái điều khiển cổng và roof</div>
         <WidgetContainer>
           {status && status.car === 1 ? (
             <Cardb heading="Cửa nhà xe Đang mở" icon="car" />

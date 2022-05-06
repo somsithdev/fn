@@ -48,9 +48,9 @@ export default function RoofScreen(props) {
                     textAlign: "center",
                     background: "#202A3B",
                   }}
-                  onClick={() => roofHandler("open")}
+                  onClick={() => roofHandler("close")}
                 >
-                  ON
+                  Open
                 </li>
                 <li
                   className="card"
@@ -59,9 +59,9 @@ export default function RoofScreen(props) {
                     textAlign: "center",
                     background: "#202A3B",
                   }}
-                  onClick={() => roofHandler("close")}
+                  onClick={() => roofHandler("open")}
                 >
-                  OFF
+                  Close
                 </li>
               </ul>
             </div>

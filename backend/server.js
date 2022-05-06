@@ -212,7 +212,7 @@ app.put(
     if (user) {
       user.username = req.body.username || user.username;
       user.email = req.body.email || user.email;
-      user.isAdmin = req.body.isAdmin || user.isAdmin;
+      user.isAdmin = req.body.admin ;
       user.phone = req.body.phone || user.phone;
       user.dob = req.body.dob || user.dob;
 

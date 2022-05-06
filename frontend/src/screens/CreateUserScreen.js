@@ -17,7 +17,7 @@ export default function CreateUserScreen(props) {
   const [dob, setDob] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [admin, setAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   const userCreate = useSelector((state) => state.userCreate);
   const { loading, error, success } = userCreate;
@@ -31,7 +31,7 @@ export default function CreateUserScreen(props) {
     if (password !== confirmPassword) {
       alert("Password and confirm password are not match");
     } else {
-      dispatch(createUser(username, email, phone, dob, password, admin));
+      dispatch(createUser(username, email, phone, dob, password, isAdmin));
     }
   };
 
@@ -128,7 +128,7 @@ export default function CreateUserScreen(props) {
                       name="plan"
                       id="plan"
                       className="input"
-                      // onChange={(e) => setIsAdmin(e.target.value)}
+                      onChange={(e) => setIsAdmin(e.target.value)}
                     >
                       <option value={true} selected>
                         Yes

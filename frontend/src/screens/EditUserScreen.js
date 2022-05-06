@@ -71,7 +71,7 @@ export default function EditUserScreen(props) {
         )}
         {loadingUpdate && <Loading></Loading>}
         {errorUpdate && (
-          <MessageBox variant="danger">{errorUpdate.message}</MessageBox>
+          <MessageBox variant="danger">{errorUpdate.messages}</MessageBox>
         )}
         <HeaderHome />
         <main style={{ color: "white" }}>

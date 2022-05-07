@@ -45,6 +45,7 @@ export default function EditUserScreen(props) {
   const [phone, setPhone] = useState();
   const [dob, setDob] = useState();
   const [admin, setAdmin] = useState();
+
   useEffect(() => {
     if (!details || details._id !== id) {
       dispatch({ type: SINGLE_USER_DETAIL_RESET });
@@ -60,6 +61,7 @@ export default function EditUserScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser(id, username, email, phone, dob, admin));
+    console.log(id, username, email, phone, dob, admin);
   };
 
   return (
@@ -128,7 +130,10 @@ export default function EditUserScreen(props) {
                       value={dob}
                       id="phone"
                       placeholder="Enter phone number"
-                      onChange={(e) => setDob(e.target.value)}
+                      onChange={(e) => {
+                        setDob(e.target.value);
+                        console.log(dob);
+                      }}
                     />
                   </div>
                   {/* <div>

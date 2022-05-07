@@ -50,14 +50,14 @@ export default function ListUsersScreen(props) {
   return (
     <div>
       <div className="grid-container">
-        {loading && <Loading></Loading>}
-        {error && <MessageBox variant="danger">{error.message}</MessageBox>}
-        {loadingDelete && <Loading></Loading>}
-        {errorDelete && (
-          <MessageBox variant="danger">{error.message}</MessageBox>
-        )}
         <HeaderHome />
         <main style={{ color: "white" }}>
+          {loading && <Loading></Loading>}
+          {error && <MessageBox variant="danger">{error.message}</MessageBox>}
+          {loadingDelete && <Loading></Loading>}
+          {errorDelete && (
+            <MessageBox variant="danger">{error.message}</MessageBox>
+          )}
           <div
             className="row fit "
             style={{

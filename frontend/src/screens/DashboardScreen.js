@@ -17,16 +17,16 @@ export default function DashboardScreen(props) {
   return (
     <div>
       <div className="grid-container">
-        {loading && <Loading></Loading>}
-        {error && (
-          <MessageBox variant="danger">
-            {error.message === "Request failed with status code 401"
-              ? "Invalid Username or Password!"
-              : error.message}
-          </MessageBox>
-        )}
         <HeaderHome />
         <main style={{ color: "white" }}>
+          {loading && <Loading></Loading>}
+          {error && (
+            <MessageBox variant="danger">
+              {error.message === "Request failed with status code 401"
+                ? "Invalid Username or Password!"
+                : error.message}
+            </MessageBox>
+          )}
           <div>
             <Widgets></Widgets>
           </div>

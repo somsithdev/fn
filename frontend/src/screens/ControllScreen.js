@@ -22,11 +22,13 @@ export default function ControllScreen(props) {
     <div>
       <div className="grid-container">
         <HeaderHome />
-        {loading && <Loading></Loading>}
-        {error && <MessageBox variant="danger">{error.message}</MessageBox>}
-        {loadingLED && <Loading></Loading>}
-        {errorLED && <MessageBox variant="danger">{error.message}</MessageBox>}
         <main style={{ color: "white" }}>
+          {loading && <Loading></Loading>}
+          {error && <MessageBox variant="danger">{error.message}</MessageBox>}
+          {loadingLED && <Loading></Loading>}
+          {errorLED && (
+            <MessageBox variant="danger">{error.message}</MessageBox>
+          )}
           <div className="row fit top">
             <div className="col-3 ">
               <img
